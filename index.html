@@ -4,173 +4,172 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GameZone | متجر الألعاب</title>
+<title>GameZone | عالم الألعاب</title>
 
 <style>
-* {
- box-sizing: border-box;
+*{box-sizing:border-box}
+
+body{
+ margin:0;
+ background:#101018;
+ color:white;
+ font-family:Arial,sans-serif;
 }
 
-body {
- margin: 0;
- background: #101018;
- color: white;
- font-family: Arial, sans-serif;
+header{
+ background:#191927;
+ padding:18px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ flex-wrap:wrap;
+ gap:12px;
+ border-bottom:1px solid #343044;
 }
 
-header {
- background: #191927;
- padding: 18px;
- border-bottom: 1px solid #343044;
- display: flex;
- justify-content: space-between;
- align-items: center;
- flex-wrap: wrap;
- gap: 12px;
+.logo{
+ color:#a78bfa;
+ font-size:25px;
+ font-weight:bold;
 }
 
-.logo {
- font-size: 24px;
- font-weight: bold;
- color: #a78bfa;
+nav a{
+ color:white;
+ text-decoration:none;
+ margin:7px;
+ font-size:14px;
 }
 
-nav a {
- color: white;
- text-decoration: none;
- margin: 7px;
- font-size: 14px;
+.hero{
+ margin:18px;
+ padding:35px 15px;
+ border-radius:18px;
+ text-align:center;
+ background:linear-gradient(135deg,#5426a8,#17132c);
 }
 
-.hero {
- margin: 20px;
- padding: 35px 15px;
- border-radius: 18px;
- background: linear-gradient(135deg,#5426a8,#17132c);
- text-align: center;
+.hero h1{font-size:28px}
+.hero p{color:#ddd}
+
+.search{
+ width:90%;
+ max-width:500px;
+ padding:14px;
+ border-radius:12px;
+ border:1px solid #49415d;
+ background:#201e2d;
+ color:white;
+ margin-top:12px;
 }
 
-.hero h1 {
- font-size: 27px;
+h2{
+ color:#c4b5fd;
+ margin:25px 18px 12px;
 }
 
-.hero p {
- color: #ddd;
+.categories{
+ display:flex;
+ gap:10px;
+ overflow-x:auto;
+ padding:10px 18px;
 }
 
-.search {
- width: 90%;
- max-width: 500px;
- padding: 14px;
- border: 1px solid #49415d;
- border-radius: 12px;
- background: #201e2d;
- color: white;
- margin-top: 15px;
+.categories button,
+.filter button{
+ background:#242235;
+ color:white;
+ border:1px solid #49415d;
+ border-radius:20px;
+ padding:11px 17px;
+ white-space:nowrap;
+ cursor:pointer;
 }
 
-h2 {
- margin: 25px 20px 10px;
- color: #c4b5fd;
+.categories button:hover,
+.filter button:hover,
+.filter button.active{
+ background:#7545d5;
 }
 
-.categories {
- display: flex;
- gap: 10px;
- overflow-x: auto;
- padding: 12px 20px;
+.filter{
+ display:flex;
+ gap:10px;
+ overflow-x:auto;
+ padding:10px 18px;
 }
 
-.categories button {
- background: #242235;
- color: white;
- border: 1px solid #49415d;
- border-radius: 20px;
- padding: 10px 18px;
- white-space: nowrap;
- cursor: pointer;
+.games{
+ display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:14px;
+ padding:15px;
 }
 
-.categories button:hover {
- background: #7545d5;
+.card{
+ background:#1d1c29;
+ border:1px solid #343044;
+ border-radius:15px;
+ overflow:hidden;
 }
 
-.games {
- display: grid;
- grid-template-columns: repeat(2,minmax(0,1fr));
- gap: 14px;
- padding: 15px;
+.cover{
+ height:120px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:50px;
+ background:linear-gradient(135deg,#4c287f,#25234c);
 }
 
-.card {
- background: #1d1c29;
- border: 1px solid #343044;
- border-radius: 15px;
- overflow: hidden;
- min-width: 0;
+.info{padding:12px}
+
+.info h3{
+ margin:5px 0;
+ font-size:16px;
 }
 
-.cover {
- height: 125px;
- display: flex;
- align-items: center;
- justify-content: center;
- font-size: 55px;
- background: linear-gradient(135deg,#4c287f,#25234c);
+.info p{
+ color:#aaa;
+ font-size:12px;
+ min-height:30px;
 }
 
-.info {
- padding: 12px;
+.tag{
+ display:inline-block;
+ color:#c4b5fd;
+ font-size:11px;
+ margin-bottom:10px;
 }
 
-.info h3 {
- margin: 5px 0;
- font-size: 16px;
+.download{
+ display:block;
+ background:#7545d5;
+ color:white;
+ padding:10px;
+ border-radius:9px;
+ text-decoration:none;
+ text-align:center;
+ font-size:13px;
 }
 
-.info p {
- font-size: 12px;
- color: #aaa;
- min-height: 30px;
+.empty{
+ display:none;
+ text-align:center;
+ padding:25px;
+ color:#aaa;
 }
 
-.download {
- display: block;
- text-align: center;
- background: #7545d5;
- color: white;
- padding: 10px;
- border-radius: 9px;
- text-decoration: none;
- font-size: 13px;
+footer{
+ text-align:center;
+ padding:25px;
+ color:#999;
+ border-top:1px solid #343044;
+ margin-top:25px;
 }
 
-.download:hover {
- background: #9365ef;
-}
-
-.empty {
- display: none;
- text-align: center;
- color: #aaa;
- padding: 25px;
-}
-
-footer {
- text-align: center;
- padding: 25px;
- color: #999;
- border-top: 1px solid #343044;
- margin-top: 20px;
-}
-
-@media(min-width:700px) {
- .games {
-  grid-template-columns: repeat(4,1fr);
- }
- .cover {
-  height: 170px;
- }
+@media(min-width:700px){
+ .games{grid-template-columns:repeat(4,1fr)}
+ .cover{height:170px}
 }
 </style>
 </head>
@@ -187,8 +186,8 @@ footer {
 </header>
 
 <section class="hero">
- <h1>عالم الألعاب بين يديك</h1>
- <p>اكتشف ألعاب أندرويد جديدة ومميزة</p>
+ <h1>مرحباً بك في GameZone</h1>
+ <p>اكتشف أفضل ألعاب الأندرويد في مكان واحد</p>
  <input class="search" id="search"
  placeholder="ابحث عن لعبة..."
  oninput="filterGames()">
@@ -198,96 +197,145 @@ footer {
 
 <div class="categories">
  <button onclick="filterCategory('all')">الكل</button>
- <button onclick="filterCategory('كرة قدم')">كرة القدم</button>
- <button onclick="filterCategory('حرب')">حرب</button>
- <button onclick="filterCategory('سباق')">سباقات</button>
- <button onclick="filterCategory('مغامرات')">مغامرات</button>
+ <button onclick="filterCategory('كرة قدم')">⚽ كرة القدم</button>
+ <button onclick="filterCategory('حرب')">🎯 حرب وأكشن</button>
+ <button onclick="filterCategory('سباق')">🏎️ سباقات</button>
+ <button onclick="filterCategory('مغامرات')">🗺️ مغامرات</button>
+ <button onclick="filterCategory('استراتيجية')">♟️ استراتيجية</button>
+ <button onclick="filterCategory('بقاء')">🏕️ بقاء</button>
 </div>
 
-<h2 id="games">الألعاب المميزة</h2>
+<h2>اختر قوة هاتفك</h2>
+
+<div class="filter">
+ <button class="active" onclick="filterPower('all',this)">الكل</button>
+ <button onclick="filterPower('ضعيف',this)">هاتف ضعيف</button>
+ <button onclick="filterPower('متوسط',this)">هاتف متوسط</button>
+ <button onclick="filterPower('قوي',this)">هاتف قوي</button>
+</div>
+
+<h2 id="games">🔥 الألعاب المميزة</h2>
 
 <div class="games" id="gameList">
 
- <div class="card" data-category="كرة قدم">
+ <div class="card" data-category="كرة قدم" data-power="متوسط">
   <div class="cover">⚽</div>
   <div class="info">
+   <span class="tag">كرة القدم • متوسط</span>
    <h3>لعبة كرة القدم</h3>
-   <p>لعبة رياضية ممتعة لعشاق كرة القدم.</p>
+   <p>استمتع بتجربة كرة القدم.</p>
    <a class="download" href="game.html?id=1">عرض التفاصيل</a>
   </div>
  </div>
 
- <div class="card" data-category="حرب">
+ <div class="card" data-category="حرب" data-power="قوي">
   <div class="cover">🎯</div>
   <div class="info">
+   <span class="tag">حرب وأكشن • قوي</span>
    <h3>لعبة المعارك</h3>
-   <p>تحديات ومغامرات في عالم المعارك.</p>
+   <p>تحديات ومغامرات مثيرة.</p>
    <a class="download" href="game.html?id=2">عرض التفاصيل</a>
   </div>
  </div>
 
- <div class="card" data-category="سباق">
+ <div class="card" data-category="سباق" data-power="متوسط">
   <div class="cover">🏎️</div>
   <div class="info">
+   <span class="tag">سباقات • متوسط</span>
    <h3>سباق السيارات</h3>
-   <p>استمتع بتجربة سباق السيارات.</p>
+   <p>تجربة سباق ممتعة.</p>
    <a class="download" href="game.html?id=3">عرض التفاصيل</a>
   </div>
  </div>
 
- <div class="card" data-category="مغامرات">
+ <div class="card" data-category="مغامرات" data-power="ضعيف">
   <div class="cover">🗺️</div>
   <div class="info">
+   <span class="tag">مغامرات • ضعيف</span>
    <h3>عالم المغامرات</h3>
-   <p>اكتشف عالماً مليئاً بالمغامرات.</p>
+   <p>اكتشف عالماً جديداً.</p>
    <a class="download" href="game.html?id=4">عرض التفاصيل</a>
+  </div>
+ </div>
+
+ <div class="card" data-category="استراتيجية" data-power="ضعيف">
+  <div class="cover">♟️</div>
+  <div class="info">
+   <span class="tag">استراتيجية • ضعيف</span>
+   <h3>لعبة الاستراتيجية</h3>
+   <p>خطط وحقق الانتصار.</p>
+   <a class="download" href="game.html?id=5">عرض التفاصيل</a>
+  </div>
+ </div>
+
+ <div class="card" data-category="بقاء" data-power="متوسط">
+  <div class="cover">🏕️</div>
+  <div class="info">
+   <span class="tag">بقاء • متوسط</span>
+   <h3>لعبة البقاء</h3>
+   <p>استكشف العالم واجمع الموارد.</p>
+   <a class="download" href="game.html?id=6">عرض التفاصيل</a>
   </div>
  </div>
 
 </div>
 
 <div class="empty" id="empty">
- لا توجد ألعاب مطابقة للبحث.
+ لا توجد ألعاب مطابقة.
 </div>
 
 <footer id="about">
- <div class="logo">GameZone</div>
- <p>منصتك لاكتشاف ألعاب أندرويد</p>
+ <div class="logo">GameZone 🎮</div>
+ <p>وجهتك لاكتشاف ألعاب الأندرويد</p>
  <p>© 2026 GameZone</p>
 </footer>
 
 <script>
-function filterGames() {
- const q = document.getElementById('search').value.toLowerCase();
 
- document.querySelectorAll('.card').forEach(card => {
-  card.style.display =
-   card.innerText.toLowerCase().includes(q) ? '' : 'none';
+let selectedCategory='all';
+let selectedPower='all';
+
+function updateGames(){
+ const cards=document.querySelectorAll('.card');
+ let visible=0;
+ const q=document.getElementById('search').value.toLowerCase();
+
+ cards.forEach(card=>{
+  const matchText=card.innerText.toLowerCase().includes(q);
+  const matchCategory=selectedCategory==='all' ||
+   card.dataset.category===selectedCategory;
+  const matchPower=selectedPower==='all' ||
+   card.dataset.power===selectedPower;
+
+  const show=matchText && matchCategory && matchPower;
+  card.style.display=show?'':'none';
+  if(show) visible++;
  });
 
- checkEmpty();
+ document.getElementById('empty').style.display=
+  visible?'none':'block';
 }
 
-function filterCategory(category) {
- document.getElementById('search').value = '';
+function filterGames(){
+ updateGames();
+}
 
- document.querySelectorAll('.card').forEach(card => {
-  card.style.display =
-   (category === 'all' || card.dataset.category === category)
-   ? '' : 'none';
+function filterCategory(category){
+ selectedCategory=category;
+ updateGames();
+}
+
+function filterPower(power,button){
+ selectedPower=power;
+ document.querySelectorAll('.filter button').forEach(b=>{
+  b.classList.remove('active');
  });
-
- checkEmpty();
+ button.classList.add('active');
+ updateGames();
 }
 
-function checkEmpty() {
- const cards = [...document.querySelectorAll('.card')];
- const visible = cards.some(card => card.style.display !== 'none');
-
- document.getElementById('empty').style.display =
-  visible ? 'none' : 'block';
-}
 </script>
 
 </body>
-</html>
+    </html>
+    
