@@ -7,106 +7,177 @@
 <title>تفاصيل اللعبة | GameZone</title>
 
 <style>
-* {
-  box-sizing: border-box;
+*{box-sizing:border-box}
+
+body{
+ margin:0;
+ background:#101018;
+ color:white;
+ font-family:Arial,sans-serif;
+ text-align:center;
 }
 
-body {
-  margin: 0;
-  background: #10101a;
-  color: white;
-  font-family: Arial, sans-serif;
-  text-align: center;
+header{
+ background:#191927;
+ padding:20px;
+ color:#a78bfa;
+ font-size:25px;
+ font-weight:bold;
 }
 
-header {
-  background: #19192b;
-  padding: 22px;
-  color: #a855f7;
-  font-size: 26px;
-  font-weight: bold;
+.container{
+ max-width:650px;
+ margin:25px auto;
+ padding:18px;
 }
 
-.container {
-  max-width: 600px;
-  margin: 35px auto;
-  padding: 20px;
+.cover{
+ width:100%;
+ height:250px;
+ object-fit:cover;
+ border-radius:15px;
+ background:#25253b;
 }
 
-.cover {
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 15px;
-  background: #25253b;
+h1{color:#c4b5fd}
+
+.info{
+ background:#1d1c29;
+ padding:18px;
+ border-radius:12px;
+ margin:20px 0;
+ line-height:2;
 }
 
-h1 {
-  color: #c084fc;
+.description{
+ color:#ccc;
+ line-height:1.9;
 }
 
-.info {
-  background: #1c1c30;
-  padding: 18px;
-  border-radius: 12px;
-  margin: 20px 0;
-  line-height: 2;
+.download,.back{
+ display:inline-block;
+ background:#7545d5;
+ color:white;
+ padding:13px 25px;
+ border-radius:10px;
+ text-decoration:none;
+ margin:8px;
 }
 
-button, .download {
-  display: inline-block;
-  background: #9333ea;
-  color: white;
-  border: none;
-  padding: 14px 25px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-size: 16px;
-  margin: 8px;
+.back{background:#33334a}
+
+.message{
+ color:#fca5a5;
+ padding:25px;
 }
 
-.back {
-  background: #33334a;
-}
-
-footer {
-  color: #888;
-  padding: 20px;
+footer{
+ color:#999;
+ padding:20px;
 }
 </style>
 </head>
 
 <body>
 
-<header>GameZone 🎮</header>
+<header>🎮 GameZone</header>
 
-<div class="container">
+<div class="container" id="content">
 
-<img class="cover"
-src="https://placehold.co/600x300/25253b/ffffff?text=GameZone"
+<img class="cover" id="cover" src=""
 alt="غلاف اللعبة">
 
-<h1>اسم اللعبة</h1>
+<h1 id="name"></h1>
 
 <div class="info">
-<p>🎮 التصنيف: ألعاب</p>
-<p>📦 الحجم: غير محدد</p>
+<p id="category"></p>
+<p id="size"></p>
 <p>📱 النظام: Android</p>
 </div>
 
 <h3>وصف اللعبة</h3>
-<p>مرحباً بك في صفحة تفاصيل اللعبة. اكتشف اللعبة واستمتع بتجربتها!</p>
 
-<a href="#" class="download">تحميل اللعبة</a>
+<p class="description" id="description"></p>
+
+<a href="#" class="download" id="download">
+تحميل اللعبة
+</a>
 
 <br>
 
-<a href="index.html" class="download back">العودة إلى المتجر</a>
+<a href="index.html" class="back">
+العودة إلى المتجر
+</a>
 
 </div>
 
 <footer>© GameZone 2026</footer>
 
+<script>
+
+const games = {
+
+1:{
+ name:"لعبة كرة القدم",
+ category:"⚽ التصنيف: كرة قدم",
+ size:"📦 الحجم: غير محدد",
+ description:"استمتع بتجربة كرة القدم واكتشف مهاراتك داخل الملعب.",
+ image:"https://placehold.co/600x300/25253b/ffffff?text=Football",
+ link:"#"
+},
+
+2:{
+ name:"لعبة المعارك",
+ category:"🎯 التصنيف: حرب",
+ size:"📦 الحجم: غير محدد",
+ description:"اكتشف عالم المعارك والتحديات في هذه اللعبة.",
+ image:"https://placehold.co/600x300/25253b/ffffff?text=War",
+ link:"#"
+},
+
+3:{
+ name:"سباق السيارات",
+ category:"🏎️ التصنيف: سباقات",
+ size:"📦 الحجم: غير محدد",
+ description:"استمتع بتجربة سباق السيارات والسرعة.",
+ image:"https://placehold.co/600x300/25253b/ffffff?text=Racing",
+ link:"#"
+},
+
+4:{
+ name:"عالم المغامرات",
+ category:"🗺️ التصنيف: مغامرات",
+ size:"📦 الحجم: غير محدد",
+ description:"اكتشف عالماً مليئاً بالمغامرات والاستكشاف.",
+ image:"https://placehold.co/600x300/25253b/ffffff?text=Adventure",
+ link:"#"
+}
+
+};
+
+const id = new URLSearchParams(
+ window.location.search
+).get("id");
+
+const game = games[id];
+
+if(game){
+
+ document.getElementById("name").textContent=game.name;
+ document.getElementById("category").textContent=game.category;
+ document.getElementById("size").textContent=game.size;
+ document.getElementById("description").textContent=game.description;
+ document.getElementById("cover").src=game.image;
+ document.getElementById("download").href=game.link;
+
+}else{
+
+ document.getElementById("content").innerHTML=
+ '<h2 class="message">اللعبة غير موجودة!</h2><a href="index.html" class="back">العودة إلى المتجر</a>';
+
+}
+
+</script>
+
 </body>
-  </html>
-  
+</html>
