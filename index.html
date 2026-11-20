@@ -5,104 +5,176 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GameZone | متجر الألعاب</title>
+
 <style>
-*{box-sizing:border-box}
-body{
- margin:0;
- background:#101018;
- color:white;
- font-family:Arial,sans-serif;
+* {
+ box-sizing: border-box;
 }
-header{
- background:#191927;
- padding:20px;
- border-bottom:1px solid #343044;
- display:flex;
- justify-content:space-between;
- align-items:center;
+
+body {
+ margin: 0;
+ background: #101018;
+ color: white;
+ font-family: Arial, sans-serif;
 }
-.logo{font-size:25px;font-weight:bold;color:#a78bfa}
-nav a{color:white;text-decoration:none;margin:8px;font-size:14px}
-.hero{
- margin:20px;
- padding:35px 20px;
- border-radius:18px;
- background:linear-gradient(135deg,#5426a8,#17132c);
- text-align:center;
+
+header {
+ background: #191927;
+ padding: 18px;
+ border-bottom: 1px solid #343044;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ flex-wrap: wrap;
+ gap: 12px;
 }
-.hero h1{font-size:30px}
-.hero p{color:#ddd}
-.search{
- width:90%;
- max-width:500px;
- padding:14px;
- border:1px solid #49415d;
- border-radius:12px;
- background:#201e2d;
- color:white;
- margin-top:15px;
+
+.logo {
+ font-size: 24px;
+ font-weight: bold;
+ color: #a78bfa;
 }
-h2{margin:25px 20px;color:#c4b5fd}
-.categories{
- display:flex;
- gap:10px;
- overflow-x:auto;
- padding:10px 20px;
+
+nav a {
+ color: white;
+ text-decoration: none;
+ margin: 7px;
+ font-size: 14px;
 }
-.categories button{
- background:#242235;
- color:white;
- border:1px solid #49415d;
- border-radius:20px;
- padding:10px 18px;
- white-space:nowrap;
+
+.hero {
+ margin: 20px;
+ padding: 35px 15px;
+ border-radius: 18px;
+ background: linear-gradient(135deg,#5426a8,#17132c);
+ text-align: center;
 }
-.games{
- display:grid;
- grid-template-columns:repeat(2,minmax(0,1fr));
- gap:14px;
- padding:15px;
+
+.hero h1 {
+ font-size: 27px;
 }
-.card{
- background:#1d1c29;
- border:1px solid #343044;
- border-radius:15px;
- overflow:hidden;
+
+.hero p {
+ color: #ddd;
 }
-.cover{
- height:110px;
- display:flex;
- align-items:center;
- justify-content:center;
- font-size:45px;
- background:linear-gradient(135deg,#4c287f,#25234c);
+
+.search {
+ width: 90%;
+ max-width: 500px;
+ padding: 14px;
+ border: 1px solid #49415d;
+ border-radius: 12px;
+ background: #201e2d;
+ color: white;
+ margin-top: 15px;
 }
-.info{padding:12px}
-.info h3{margin:5px 0;font-size:16px}
-.info p{font-size:12px;color:#aaa}
-.download{
- display:block;
- text-align:center;
- background:#7545d5;
- color:white;
- padding:10px;
- border-radius:9px;
- text-decoration:none;
- font-size:13px;
+
+h2 {
+ margin: 25px 20px 10px;
+ color: #c4b5fd;
 }
-footer{
- text-align:center;
- padding:30px;
- color:#999;
- border-top:1px solid #343044;
- margin-top:25px;
+
+.categories {
+ display: flex;
+ gap: 10px;
+ overflow-x: auto;
+ padding: 12px 20px;
 }
-@media(min-width:700px){
- .games{grid-template-columns:repeat(4,1fr)}
- .cover{height:160px}
+
+.categories button {
+ background: #242235;
+ color: white;
+ border: 1px solid #49415d;
+ border-radius: 20px;
+ padding: 10px 18px;
+ white-space: nowrap;
+ cursor: pointer;
+}
+
+.categories button:hover {
+ background: #7545d5;
+}
+
+.games {
+ display: grid;
+ grid-template-columns: repeat(2,minmax(0,1fr));
+ gap: 14px;
+ padding: 15px;
+}
+
+.card {
+ background: #1d1c29;
+ border: 1px solid #343044;
+ border-radius: 15px;
+ overflow: hidden;
+ min-width: 0;
+}
+
+.cover {
+ height: 125px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 55px;
+ background: linear-gradient(135deg,#4c287f,#25234c);
+}
+
+.info {
+ padding: 12px;
+}
+
+.info h3 {
+ margin: 5px 0;
+ font-size: 16px;
+}
+
+.info p {
+ font-size: 12px;
+ color: #aaa;
+ min-height: 30px;
+}
+
+.download {
+ display: block;
+ text-align: center;
+ background: #7545d5;
+ color: white;
+ padding: 10px;
+ border-radius: 9px;
+ text-decoration: none;
+ font-size: 13px;
+}
+
+.download:hover {
+ background: #9365ef;
+}
+
+.empty {
+ display: none;
+ text-align: center;
+ color: #aaa;
+ padding: 25px;
+}
+
+footer {
+ text-align: center;
+ padding: 25px;
+ color: #999;
+ border-top: 1px solid #343044;
+ margin-top: 20px;
+}
+
+@media(min-width:700px) {
+ .games {
+  grid-template-columns: repeat(4,1fr);
+ }
+ .cover {
+  height: 170px;
+ }
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -123,6 +195,7 @@ footer{
 </section>
 
 <h2>تصنيفات الألعاب</h2>
+
 <div class="categories">
  <button onclick="filterCategory('all')">الكل</button>
  <button onclick="filterCategory('كرة قدم')">كرة القدم</button>
@@ -132,15 +205,15 @@ footer{
 </div>
 
 <h2 id="games">الألعاب المميزة</h2>
+
 <div class="games" id="gameList">
 
  <div class="card" data-category="كرة قدم">
   <div class="cover">⚽</div>
   <div class="info">
    <h3>لعبة كرة القدم</h3>
-   <p>لعبة رياضية ممتعة</p>
-   <a class="download" href=game.html?id=1>
-   
+   <p>لعبة رياضية ممتعة لعشاق كرة القدم.</p>
+   <a class="download" href="game.html?id=1">عرض التفاصيل</a>
   </div>
  </div>
 
@@ -148,19 +221,17 @@ footer{
   <div class="cover">🎯</div>
   <div class="info">
    <h3>لعبة المعارك</h3>
-   <p>مغامرات وتحديات</p>
-   <a class="download" href="game.html?id=2>
-
-    </div>
+   <p>تحديات ومغامرات في عالم المعارك.</p>
+   <a class="download" href="game.html?id=2">عرض التفاصيل</a>
+  </div>
  </div>
 
  <div class="card" data-category="سباق">
   <div class="cover">🏎️</div>
   <div class="info">
    <h3>سباق السيارات</h3>
-   <p>تجربة سباق ممتعة</p>
-   <a class="download" href=game.html?id=3>
-   
+   <p>استمتع بتجربة سباق السيارات.</p>
+   <a class="download" href="game.html?id=3">عرض التفاصيل</a>
   </div>
  </div>
 
@@ -168,35 +239,55 @@ footer{
   <div class="cover">🗺️</div>
   <div class="info">
    <h3>عالم المغامرات</h3>
-   <p>اكتشف عالماً جديداً</p>
-   <a class="download" href=game.html?id=4>
-   
+   <p>اكتشف عالماً مليئاً بالمغامرات.</p>
+   <a class="download" href="game.html?id=4">عرض التفاصيل</a>
   </div>
  </div>
 
 </div>
 
+<div class="empty" id="empty">
+ لا توجد ألعاب مطابقة للبحث.
+</div>
+
 <footer id="about">
  <div class="logo">GameZone</div>
  <p>منصتك لاكتشاف ألعاب أندرويد</p>
-<p>© 2026 GameZone</p>
+ <p>© 2026 GameZone</p>
 </footer>
 
 <script>
-function filterGames(){
- const q=document.getElementById('search').value.toLowerCase();
- document.querySelectorAll('.card').forEach(card=>{
-  card.style.display=card.innerText.toLowerCase().includes(q)?'block':'none';
+function filterGames() {
+ const q = document.getElementById('search').value.toLowerCase();
+
+ document.querySelectorAll('.card').forEach(card => {
+  card.style.display =
+   card.innerText.toLowerCase().includes(q) ? '' : 'none';
  });
+
+ checkEmpty();
 }
-function filterCategory(category){
- document.querySelectorAll('.card').forEach(card=>{
-  card.style.display=(category==='all'||card.dataset.category===category)?'block':'none';
+
+function filterCategory(category) {
+ document.getElementById('search').value = '';
+
+ document.querySelectorAll('.card').forEach(card => {
+  card.style.display =
+   (category === 'all' || card.dataset.category === category)
+   ? '' : 'none';
  });
- document.getElementById('search').value='';
+
+ checkEmpty();
+}
+
+function checkEmpty() {
+ const cards = [...document.querySelectorAll('.card')];
+ const visible = cards.some(card => card.style.display !== 'none');
+
+ document.getElementById('empty').style.display =
+  visible ? 'none' : 'block';
 }
 </script>
 
 </body>
-  </html>
-  
+</html>
