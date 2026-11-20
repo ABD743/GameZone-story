@@ -1,91 +1,78 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تفاصيل اللعبة | GameZone</title>
-
+<title>GameZone | تفاصيل اللعبة</title>
 <style>
 *{box-sizing:border-box}
-
 body{
  margin:0;
  background:#101018;
  color:white;
  font-family:Arial,sans-serif;
- text-align:center;
 }
-
 header{
  background:#191927;
  padding:20px;
+ text-align:center;
  color:#a78bfa;
- font-size:25px;
+ font-size:26px;
  font-weight:bold;
 }
-
 .container{
- max-width:650px;
- margin:25px auto;
+ max-width:700px;
+ margin:30px auto;
  padding:18px;
 }
-
 .cover{
  width:100%;
- height:250px;
+ height:280px;
  object-fit:cover;
- border-radius:15px;
+ border-radius:16px;
  background:#25253b;
 }
-
-h1{color:#c4b5fd}
-
+h1{color:#c4b5fd;text-align:center}
 .info{
  background:#1d1c29;
  padding:18px;
- border-radius:12px;
+ border-radius:14px;
  margin:20px 0;
  line-height:2;
 }
-
 .description{
  color:#ccc;
- line-height:1.9;
+ line-height:2;
 }
-
 .download,.back{
- display:inline-block;
- background:#7545d5;
- color:white;
- padding:13px 25px;
+ display:block;
+ padding:14px;
  border-radius:10px;
  text-decoration:none;
- margin:8px;
+ text-align:center;
+ margin:12px 0;
+ color:white;
+ background:#7545d5;
 }
-
 .back{background:#33334a}
-
-.message{
- color:#fca5a5;
- padding:25px;
+.download.disabled{
+ background:#444;
+ color:#bbb;
+ pointer-events:none;
 }
-
 footer{
- color:#999;
- padding:20px;
+ text-align:center;
+ color:#888;
+ padding:25px;
 }
 </style>
 </head>
-
 <body>
 
 <header>🎮 GameZone</header>
 
 <div class="container" id="content">
-
-<img class="cover" id="cover" src=""
-alt="غلاف اللعبة">
+<img class="cover" id="cover" alt="غلاف اللعبة">
 
 <h1 id="name"></h1>
 
@@ -95,98 +82,70 @@ alt="غلاف اللعبة">
 <p>📱 النظام: Android</p>
 </div>
 
-<h3>وصف اللعبة</h3>
-
+<h3>📖 وصف اللعبة</h3>
 <p class="description" id="description"></p>
 
-<a href="#" class="download" id="download">
-تحميل اللعبة
+<a class="download disabled" id="download">
+رابط التحميل غير متوفر حالياً
 </a>
 
-<br>
-
-<a href="index.html" class="back">
-العودة إلى المتجر
-</a>
-
+<a href="index.html" class="back">العودة إلى المتجر</a>
 </div>
 
 <footer>© GameZone 2026</footer>
 
 <script>
-
 const games = {
-
 1:{
  name:"لعبة كرة القدم",
  category:"⚽ التصنيف: كرة قدم",
  size:"📦 الحجم: غير محدد",
  description:"استمتع بتجربة كرة القدم واكتشف مهاراتك داخل الملعب.",
- image:"https://placehold.co/600x300/25253b/ffffff?text=Football",
- link:"#"
+ image:"https://placehold.co/600x300/25253b/ffffff?text=Football"
 },
-
 2:{
  name:"لعبة المعارك",
  category:"🎯 التصنيف: حرب",
  size:"📦 الحجم: غير محدد",
  description:"اكتشف عالم المعارك والتحديات في هذه اللعبة.",
- image:"https://placehold.co/600x300/25253b/ffffff?text=War",
- link:"#"
+ image:"https://placehold.co/600x300/25253b/ffffff?text=War"
 },
-
 3:{
  name:"سباق السيارات",
  category:"🏎️ التصنيف: سباقات",
  size:"📦 الحجم: غير محدد",
  description:"استمتع بتجربة سباق السيارات والسرعة.",
- image:"https://placehold.co/600x300/25253b/ffffff?text=Racing",
- link:"#"
-}, 
- 
- 4:{
+ image:"https://placehold.co/600x300/25253b/ffffff?text=Racing"
+},
+4:{
  name:"عالم المغامرات",
  category:"🗺️ التصنيف: مغامرات",
  size:"📦 الحجم: غير محدد",
  description:"اكتشف عالماً مليئاً بالمغامرات والاستكشاف.",
- image:"https://placehold.co/600x300/25253b/ffffff?text=Adventure",
- link:"#"
+ image:"https://placehold.co/600x300/25253b/ffffff?text=Adventure"
 },
-
 7:{
  name:"Score! World Goals",
  category:"⚽ التصنيف: كرة قدم",
  size:"📦 الحجم: غير محدد",
- description:"أعد تسجيل أشهر الأهداف التاريخية في كرة القدم، وعش لحظات كروية لا تُنسى من خلال تحديات إعادة تنفيذ الأهداف الشهيرة.",
- image:"https://www.juegosandroides.com/Imagenes/score-world-goals-para-android.jpg",
- link:"#"
- }
+ description:"أعد تسجيل أشهر الأهداف التاريخية في كرة القدم، وعش لحظات كروية لا تنسى من خلال تحديات إعادة تنفيذ الأهداف الشهيرة.",
+ image:"https://www.juegosandroides.com/Imagenes/score-world-goals-para-android.jpg"
 }
-
 };
 
-const id = new URLSearchParams(
- window.location.search
-).get("id");
-
-const game = games[id];
+const id=new URLSearchParams(window.location.search).get("id");
+const game=games[id];
 
 if(game){
-
  document.getElementById("name").textContent=game.name;
  document.getElementById("category").textContent=game.category;
  document.getElementById("size").textContent=game.size;
  document.getElementById("description").textContent=game.description;
  document.getElementById("cover").src=game.image;
- document.getElementById("download").href=game.link;
-
 }else{
-
  document.getElementById("content").innerHTML=
- '<h2 class="message">اللعبة غير موجودة!</h2><a href="index.html" class="back">العودة إلى المتجر</a>';
-
+ '<h2 style="text-align:center;color:#fca5a5">اللعبة غير موجودة!</h2><a href="index.html" class="back">العودة إلى المتجر</a>';
 }
-
 </script>
 
 </body>
